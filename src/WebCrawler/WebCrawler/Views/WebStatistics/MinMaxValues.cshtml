@@ -1,0 +1,20 @@
+@using WebCrawler.Model.Benchmarking
+@model IEnumerable<MinMaxEntryViewModel>
+@{
+    Layout = "";
+}
+
+<div class="row">
+    <div class="col s4">Uri </div>
+    <div class="col s4">Max</div>
+    <div class="col s4">Min</div>
+</div>
+
+ @foreach (var item in @Model)
+    {
+        <div class="row">
+            <div class="col s4">@item.Uri </div>
+            <div class="col s4">@item.SlowestResponse </div>
+            <div class="col s4">@item.FastestResponse </div>
+        </div>
+    }

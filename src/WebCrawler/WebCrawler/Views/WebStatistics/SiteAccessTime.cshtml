@@ -1,0 +1,22 @@
+@using WebCrawler.Model.Benchmarking
+@model IEnumerable<EntryViewModel>
+@{
+    Layout = "";
+}
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [@Html.Raw(String.Join(", ", @Model.Select(x=> "\'" + x.Uri + "\'")))],
+            datasets: [{
+                label: 'miliseconds',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [@String.Join(", ", @Model.Select(x=>x.Miliseconds))],
+            }]
+        },
+        type: 'horizontalBar',
+    });
+</script>
+<canvas id="myChart"></canvas>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="LiteDB" Version="3.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pixel.Results\Pixel.Results.csproj" />
+  </ItemGroup>
+</Project>
