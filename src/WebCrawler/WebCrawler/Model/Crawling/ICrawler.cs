@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace WebCrawler.Model.Benchmarking
+namespace WebCrawler.Model.Crawling
 {
     public interface ICrawler
     {

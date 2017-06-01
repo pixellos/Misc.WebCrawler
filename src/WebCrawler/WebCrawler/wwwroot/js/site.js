@@ -12,7 +12,7 @@ function initializeAjax(targetSelector, activatorSelector, inputSelector, ajaxUr
     }
 
     function onSuccess(data, textStatus, jqXHR) {
-        if (textStatus != 'success') {
+        if (textStatus !== 'success') {
             Materialize.toast(`Sorry, something went bad, please try again. If error will repeat contact an administrator. Cause: ${textStatus}`, 900);
             console.error(textStatus);
         }
@@ -67,7 +67,7 @@ $(document).ready(function () {
         let ajaxUrl = "/WebStatistics/SiteAccessTime";
         initializeAjax(targetSelector, activatorSelector, input, ajaxUrl)
         $(input).on("keyup", function (event) {
-            if (event.keyCode == 13) {
+            if (event.keyCode === 13) {
                 $(activatorSelector).get(0).click();
             }
         });
@@ -100,7 +100,7 @@ $(document).ready(function () {
         function onSuccess(selector, data) {
             let target = $(targetSelector);
             var chart;
-            if (target.attr("chart") != 'is') {
+            if (target.attr("chart") !== 'is') {
                 target.empty();
                 chart = createChart(targetSelector);
                 console.log(data);

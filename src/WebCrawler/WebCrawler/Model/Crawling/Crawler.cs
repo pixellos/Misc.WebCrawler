@@ -8,12 +8,11 @@ using System;
 using System.IO;
 using WebCrawler.Helpers;
 
-namespace WebCrawler.Model.Benchmarking
+namespace WebCrawler.Model.Crawling
 {
-
     public class Crawler : ICrawler
     {
-        private static string[] DefaultExtensions => new[] { "aspx", "html", "php", "htm", string.Empty };
+        private static string[] DefaultExtensions => new[] { "aspx", "asp", "html", "php", "htm", string.Empty };
         private string[] AllowedExtensions { get; }
 
         public Crawler() : this(Crawler.DefaultExtensions)
@@ -74,7 +73,7 @@ namespace WebCrawler.Model.Benchmarking
             web.PreHandleDocument += (i) => stopWatch.Stop();
             stopWatch.Start();
             var page = await web.LoadFromWebAsync(urlToCrawl.AbsoluteUri, System.Text.Encoding.UTF8);
-            var attributes = page.DocumentNode.Descendants().Where(x => x.Name.Equals("a", StringComparison.CurrentCultureIgnoreCase) && x.Attributes.Contains("href")).Select(x => x.GetAttributeValue("href", "D"));
+            var attributes = page.DocumentNode.Descendants().Where(x => x.Name.Equals("a", StringComparison.CurrentCultureIgnoreCase) && x.Attributes.Contains("href")).Select(x => x.GetAttributeValue("href", ""));
             var uris = attributes.Where(x => x.FirstOrDefault() == '/').Select(x => new Uri(urlToCrawl, x));
             return new Entry(urlToCrawl, uris, stopWatch.Elapsed);
         }

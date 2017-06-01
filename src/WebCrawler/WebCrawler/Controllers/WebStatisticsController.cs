@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebCrawler.Model;
 using WebCrawler.Model.Benchmarking;
+using WebCrawler.Model.Crawling;
 
 namespace WebCrawler.Controllers
 {

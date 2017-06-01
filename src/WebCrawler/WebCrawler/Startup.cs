@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using WebCrawler.Model;
 using Pixel.DataSource;
 using WebCrawler.Model.Benchmarking;
+using WebCrawler.Model.Crawling;
 
 namespace WebCrawler
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebCrawler.Model.Benchmarking
+namespace WebCrawler.Model
 {
     public class Entry
     {

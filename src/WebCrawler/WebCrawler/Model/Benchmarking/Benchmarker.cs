@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 using Pixel.DataSource;
 using WebCrawler.Helpers;
+using WebCrawler.Model.Crawling;
 
 namespace WebCrawler.Model.Benchmarking
 {
