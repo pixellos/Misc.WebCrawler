@@ -30,8 +30,9 @@ namespace WebCrawler
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton(typeof(IRepository<DatabaseEntry>), (k)=> new Repository<DatabaseEntry>(this.Configuration.GetSection(nameof(LiteDB))[nameof(WebCrawler)]));
-            services.AddSingleton(typeof(IWebSiteBenchmarker), typeof(Crawler));
+            services.AddSingleton(typeof(IRepository<DatabaseEntry>), (k) => new Repository<DatabaseEntry>(this.Configuration.GetSection(nameof(LiteDB))[nameof(WebCrawler)]));
+            services.AddSingleton(typeof(ICrawler), typeof(Crawler));
+            services.AddSingleton(typeof(IWebSiteBenchmarker), typeof(Benchmarker));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

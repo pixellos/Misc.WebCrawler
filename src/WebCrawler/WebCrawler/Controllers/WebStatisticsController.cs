@@ -29,7 +29,8 @@ namespace WebCrawler.Controllers
                 var vm = new MinMaxEntryViewModel(q.Uri.AbsoluteUri, q.Duration.Milliseconds, ps.Single().Duration.Milliseconds);
                 return vm;
             };
-            var result = minValues.GroupJoin(maxValues, x => x.Uri, x => x.Uri, selector);
+            var result = minValues.GroupJoin(maxValues, x => x.Uri, x => x.Uri, selector)
+                .OrderByDescending(x=>x.SlowestResponse);
             return this.View(result);
         }
 
