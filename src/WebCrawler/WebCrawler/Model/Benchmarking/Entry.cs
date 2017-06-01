@@ -12,12 +12,12 @@ namespace WebCrawler.Model.Benchmarking
         public Entry(Uri uri, IEnumerable<Uri> content, TimeSpan duration)
         {
             this.Uri = uri;
-            this.ContentUris = content;
-            this.Duration = duration;
+            this.Descendants = content;
+            this.RequestDuration = duration;
         }
 
         public Uri Uri { get; set; }
-        public IEnumerable<Uri> ContentUris { get; set; }
-        public TimeSpan Duration { get;set; }
+        public IEnumerable<Uri> Descendants { get; set; }
+        public TimeSpan RequestDuration { get;set; }
     }
 }

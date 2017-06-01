@@ -47,7 +47,7 @@ namespace WebCrawler.Model.Benchmarking
                     {
                         var crawled = await this.CrawlSingle(notDynamicUri);
                         resultData.Push(crawled);
-                        var toPush = crawled.ContentUris
+                        var toPush = crawled.Descendants
                             .Where(x => x.Host == urlToCrawl.Host)
                             .Select(x => x.SkipQuery())
                             .Where(x => !visitedUrls.Contains(x.AbsoluteUri))
